@@ -224,9 +224,9 @@ wall and bird positions.  It is responsible of collision
 detection."
   (if (not (eq (current-buffer) flappymacs-buffer)) (flappymacs-pause)
     (progn
-      (message (format "update bird(%f, %f) %d, %s"
-                       flappymacs-bird-height flappymacs-bird-vector
-                       flappymacs-counter flappymacs-next-field))
+      ;; (message (format "update bird(%f, %f) %d, %s"
+      ;;                  flappymacs-bird-height flappymacs-bird-vector
+      ;;                  flappymacs-counter flappymacs-next-field))
 
       ;; update params
       (cond ((<= flappymacs-counter 0)
@@ -252,7 +252,7 @@ detection."
                  (> flappymacs-bird-height (- flappymacs-height 1))
                  (eq (gamegrid-get-cell flappymacs-bird-x-position (floor flappymacs-bird-height)) flappymacs-wall))
              ;; detect collision
-             (message "die!")
+             (message "Gameover!")
              (if (> flappymacs-score flappymacs-max-score)
                  (setq flappymacs-max-score flappymacs-score))
              (cancel-function-timers 'flappymacs-update-game))
