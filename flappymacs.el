@@ -239,24 +239,24 @@ detection."
                    (loop for y from 0 to pos do (aset flappymacs-next-field y flappymacs-wall))
                    (loop for y from (+ pos 1) to (+ pos flappymacs-slit-height)
                          do (aset flappymacs-next-field y flappymacs-blank))
-                   (loop for y from (+ pos flappymacs-slit-height 1) to (- flappymacs-height 2)
+                   (loop for y from (+ pos flappymacs-slit-height 1) to (- flappymacs-height 3)
                          do (aset flappymacs-next-field y flappymacs-wall)))))
             (t (setq flappymacs-counter (1- flappymacs-counter))))
 
       ;; update the bird
       (gamegrid-set-cell flappymacs-bird-x-position (floor flappymacs-bird-height) flappymacs-blank)
-      (setq flappymacs-bird-height (+ flappymacs-bird-height flappymacs-bird-vector))
+      (setq flappymacs-bird-height (max (+ flappymacs-bird-height flappymacs-bird-vector) 1))
       (setq flappymacs-bird-vector (+ flappymacs-bird-vector flappymacs-gravity))
 
       (cond ((or (< flappymacs-bird-height 1)
                  (> flappymacs-bird-height (- flappymacs-height 1))
                  (eq (gamegrid-get-cell flappymacs-bird-x-position (floor flappymacs-bird-height)) flappymacs-wall))
              ;; detect collision
+             (gamegrid-set-cell flappymacs-bird-x-position (floor flappymacs-bird-height) flappymacs-bird)
              (message "Gameover!")
              (if (> flappymacs-score flappymacs-max-score)
                  (setq flappymacs-max-score flappymacs-score))
              (cancel-function-timers 'flappymacs-update-game))
-;             (flappymacs-init))
             (t
              ;; redraw the bird
              (gamegrid-set-cell flappymacs-bird-x-position (floor flappymacs-bird-height) flappymacs-bird)
@@ -271,7 +271,7 @@ detection."
                  (cond
                   ((and (eq cell flappymacs-blank) (eq rcell flappymacs-wall))
                    (gamegrid-set-cell x y flappymacs-wall))
-                  ((and (eq cell flappymacs-wall) (eq rcell flappymacs-blank))
+                  ((and (eq cell flappymacs-wall) (not (eq rcell flappymacs-wall)))
                    (gamegrid-set-cell x y flappymacs-blank)))
                  )))
 
