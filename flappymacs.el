@@ -204,6 +204,7 @@
 (defvar flappymacs-bird-height 0 "bird height.")
 (defvar flappymacs-bird-vector 0 "bird vector.")
 (defvar flappymacs-max-score 0 "max score.")
+(defvar flappymacs-score 0 "score.")
 
 ;;; game logic
 
@@ -214,7 +215,7 @@
   (switch-to-buffer flappymacs-buffer-name)
   (use-local-map flappymacs-mode-map)
 
-  (setq gamegrid-use-glyphsq t)
+  (setq gamegrid-use-glyphs t)
   (setq gamegrid-use-color t)
   (gamegrid-init (flappymacs-display-options))
 
