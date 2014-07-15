@@ -1,12 +1,28 @@
 ;;; flappymacs.el --- flappybird clone for emacs
 
-;; Author: Takayuki Sato <takyuki.sato.dev@gmail.com>
+;; Copyright (C) 2014 Takayuki Sato
+
+;; Author: Takayuki Sato
+;; Created: 10 July 2014
 ;; Keywords: games
+;; Version: 0.1.0
+;; URL: https://github.com/taksatou/flappymacs
 
 ;;; Commentary:
-
-;; This is a clone of flappybird for emacs inspired by flappyvird-vim (https://github.com/mattn/flappyvird-vim).
+;;
+;; This is a clone of FlappyBird for emacs inspired by flappyvird-vim (https://github.com/mattn/flappyvird-vim).
 ;; Most codes are derived from pong.el.
+;;
+;;; Usage
+;; 
+;; Put flappymacs.el to load path, and then type `M-x flappymacs`.
+;; Default keybinds are as follows.
+;; 
+;; * space: jump
+;; * p: pause/resume
+;; * q: quit
+;; * r: retry
+
 
 ;;; Code:
 (require 'cl)
