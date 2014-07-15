@@ -359,6 +359,7 @@ detection."
   (gamegrid-start-timer flappymacs-timer-delay 'flappymacs-update-game)
   (flappymacs-update-score))
 
+;;;###autoload
 (defun flappymacs ()
   "Play flappybird and waste time.
 
