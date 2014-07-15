@@ -4,6 +4,10 @@ Flappy Bird clone inspired by https://github.com/mattn/flappyvird-vim
 
 ![](https://raw.githubusercontent.com/taksatou/flappymacs/master/data/screenshot.png)
 
+## install
+
+You can install flappymacs from `MELPA` http://melpa.milkbox.net/ .
+
 ## usage
 
 * space: jump
