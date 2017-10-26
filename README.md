@@ -6,7 +6,7 @@ Flappy Bird clone inspired by https://github.com/mattn/flappyvird-vim
 
 ## install
 
-You can install flappymacs from `MELPA` http://melpa.milkbox.net/ .
+You can install flappymacs from [`MELPA`](https://melpa.org/).
 
 ## usage
 
